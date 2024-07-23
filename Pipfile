@@ -10,3 +10,6 @@ flask = "*"
 
 [requires]
 python_version = "3.11"
+
+[scripts]
+start = "flask --app app run"
