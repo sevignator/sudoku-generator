@@ -5,18 +5,29 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sudoku Generator</title>
+
+  <link rel="stylesheet" href={{ url_for('static', filename='style.css' ) }}>
+  {{ grid_css | safe }}
 </head>
 
 <body>
   <h1>Sudoku Generator!</h1>
 
-  <ul>
+  <div class="sudoku-grid">
+
     {% for cluster in grid %}
-    <li>
-      {{ cluster }}
-    </li>
+    <div class="sudoku-cluster">
+
+      {% for cell in cluster %}
+      <div>
+        {{ cell }}
+      </div>
+      {% endfor %}
+
+    </div>
     {% endfor %}
-  </ul>
+
+  </div>
 </body>
 
 </html>

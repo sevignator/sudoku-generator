@@ -42,7 +42,7 @@ class SudokuGrid:
                         )
 
                         # Restart the grid generation in the odd case that
-                        # there are no available numbers left
+                        # there are no available numbers left for a given cell
                         if len(available_nums) == 0:
                             return self.__generate_grid()
 
@@ -57,6 +57,12 @@ class SudokuGrid:
                 grid.append(cluster)
 
         return grid
+
+    def get_clusters_per_row(self):
+        return self.__clusters_per_row
+
+    def get_cluster_size(self):
+        return self.__cluster_size
 
     def get_grid(self):
         return self.__grid
