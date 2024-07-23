@@ -36,5 +36,5 @@ Put into practice some of the concepts and techniques taught in the [Programming
 
 ## Requirements
 
-- Python 3
-- Pipenv
+- [Python 3](https://wiki.python.org/moin/BeginnersGuide/Download)
+- [Pipenv](https://pipenv.pypa.io/en/stable/scripts.html)
