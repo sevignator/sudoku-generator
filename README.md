@@ -38,3 +38,8 @@ Put into practice some of the concepts and techniques taught in the [Programming
 
 - [Python 3](https://wiki.python.org/moin/BeginnersGuide/Download)
 - [Pipenv](https://pipenv.pypa.io/en/stable/scripts.html)
+
+## References
+
+- [Flask official documentation](https://flask.palletsprojects.com/en/3.0.x/)
+- [Import files from a different folder in Python](https://sentry.io/answers/import-files-from-a-different-folder-in-python/)

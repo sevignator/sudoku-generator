@@ -12,4 +12,4 @@ flask = "*"
 python_version = "3.11"
 
 [scripts]
-start = "flask --app app run"
+start = "flask --app server run"

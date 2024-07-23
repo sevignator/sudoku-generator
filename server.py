@@ -1,6 +1,6 @@
 from flask import Flask
-from game import SudokuGrid
-from utils import retry_until_successful
+from app.classes.sudoku_grid import SudokuGrid
+from app.functions.utils import retry_until_successful
 
 app = Flask(__name__)
 grid = retry_until_successful(lambda: SudokuGrid(3, 3))

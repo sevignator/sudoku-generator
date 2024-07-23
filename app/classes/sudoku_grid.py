@@ -1,5 +1,5 @@
 import random
-from classes import NumSet
+from app.classes.numset import NumSet
 
 
 class SudokuGrid:
