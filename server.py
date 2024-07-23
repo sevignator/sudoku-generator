@@ -3,17 +3,24 @@ from app.classes.sudoku_grid import SudokuGrid
 
 app = Flask(__name__)
 sudoku_grid = SudokuGrid(3, 3)
-clusters_per_row = sudoku_grid.get_clusters_per_row()
-cluster_size = sudoku_grid.get_cluster_size()
 grid_css = f"""
 <style>
     .sudoku-grid {{
         display: grid;
-        grid-template-columns: repeat({clusters_per_row}, 1fr);
+        grid-template-columns: repeat({sudoku_grid.get_clusters_per_row()}, 1fr);
+        max-width: 600px;
+        aspect-ratio: 1;
+        outline: solid 2px red;
     }}
     .sudoku-cluster {{
         display: grid;
-        grid-template-columns: repeat({cluster_size}, 1fr);
+        grid-template-columns: repeat({sudoku_grid.get_cluster_size()}, 1fr);
+        outline: solid 1px red;
+    }}
+    .sudoku-cell {{
+        display: grid;
+        place-items: center;
+        outline: solid 1px;
     }}
 </style>
 """
