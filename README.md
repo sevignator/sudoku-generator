@@ -36,6 +36,7 @@ Put into practice some of the concepts and techniques taught in the [Programming
 
 - Each row, column and cluster may only contain a number once.
 
-## Tech stack
+## Tools used
 
 - Python
+  - `Pipenv` for dependency management
