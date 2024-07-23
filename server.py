@@ -33,12 +33,14 @@ def generate_grid_css(clusters_per_row, cluster_size):
 
 
 @app.route("/")
-def render_grid():
+def render_page():
     sudoku_grid = SudokuGrid(3, 3)
-    grid_css = generate_grid_css(sudoku_grid.get_clusters_per_row(), sudoku_grid.get_cluster_size())
 
     return render_template(
         "base.html",
         grid = sudoku_grid.get_grid(),
-        grid_css = grid_css,
+        grid_css = generate_grid_css(
+            sudoku_grid.get_clusters_per_row(),
+            sudoku_grid.get_cluster_size()
+        )
     )
