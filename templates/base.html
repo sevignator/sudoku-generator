@@ -11,23 +11,32 @@
 </head>
 
 <body>
-  <h1>Sudoku Generator!</h1>
-
-  <div class="sudoku-grid">
-
-    {% for cluster in grid %}
-    <div class="sudoku-cluster">
-
-      {% for cell in cluster %}
-      <div class="sudoku-cell">
-        {{ cell }}
-      </div>
-      {% endfor %}
-
+  <header class="app-header">
+    <div class="container header-container">
+      <h1 class="app-title">Sudoku Generator</h1>
+      <button onclick="location.reload()">New grid</button>
     </div>
-    {% endfor %}
+  </header>
 
-  </div>
+  <main>
+    <div class="container">
+      <div class="sudoku-grid">
+
+        {% for cluster in grid %}
+        <div class="sudoku-cluster">
+
+          {% for cell in cluster %}
+          <div class="sudoku-cell">
+            {{ cell }}
+          </div>
+          {% endfor %}
+
+        </div>
+        {% endfor %}
+
+      </div>
+    </div>
+  </main>
 </body>
 
 </html>
