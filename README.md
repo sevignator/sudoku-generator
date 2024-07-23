@@ -41,5 +41,6 @@ Put into practice some of the concepts and techniques taught in the [Programming
 
 ## References
 
-- [Flask official documentation](https://flask.palletsprojects.com/en/3.0.x/)
+- [Flask docs](https://flask.palletsprojects.com/en/3.0.x/)
+- [Jinja docs](https://jinja.palletsprojects.com/en/3.1.x/)
 - [Import files from a different folder in Python](https://sentry.io/answers/import-files-from-a-different-folder-in-python/)
