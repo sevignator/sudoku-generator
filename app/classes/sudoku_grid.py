@@ -10,12 +10,8 @@ class SudokuGrid:
 
     def __generate_grid(self):
         cells_per_row = self.__clusters_per_row * self.__cluster_size
-        rows = list(
-            map(lambda _: NumSet(cells_per_row), range(cells_per_row))
-        )
-        cols = list(
-            map(lambda _: NumSet(cells_per_row), range(cells_per_row))
-        )
+        rows = list(map(lambda _: NumSet(cells_per_row), range(cells_per_row)))
+        cols = list(map(lambda _: NumSet(cells_per_row), range(cells_per_row)))
         grid = []
 
         for row_index in range(self.__clusters_per_row):
@@ -41,9 +37,11 @@ class SudokuGrid:
                             & num_sets["col"].get_available_nums()
                         )
 
+                        # TODO: Remove temporary bug fix
                         # Restart the grid generation in the odd case that
                         # there are no available numbers left for a given cell
                         if len(available_nums) == 0:
+                            print("There are no more available numbers for this cell.")
                             return self.__generate_grid()
 
                         random_pick = random.choice(list(available_nums))
