@@ -13,8 +13,8 @@ class SudokuGrid:
     def __generate_grid(self):
         grid_width = 9
         cluster_width = 3
-        rows = list(map(lambda _: NumSet(grid_width), range(grid_width)))
-        cols = list(map(lambda _: NumSet(grid_width), range(grid_width)))
+        row_num_sets = list(map(lambda _: NumSet(grid_width), range(grid_width)))
+        col_num_sets = list(map(lambda _: NumSet(grid_width), range(grid_width)))
         grid = []
 
         for row_index in range(cluster_width):
@@ -31,8 +31,8 @@ class SudokuGrid:
                         current_row = cluster_row_index + sub_row_index
                         num_sets = {
                             "cluster": cluster_num_set,
-                            "row": rows[current_row],
-                            "col": cols[current_col],
+                            "row": row_num_sets[current_row],
+                            "col": col_num_sets[current_col],
                         }
                         available_nums = (
                             num_sets["cluster"].get_available_nums()
