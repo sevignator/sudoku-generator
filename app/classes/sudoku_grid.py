@@ -1,29 +1,32 @@
-import random
+from random import choice
 from app.classes.numset import NumSet
 
 
 class SudokuGrid:
-    def __init__(self, clusters_per_row, cluster_size):
-        self.__clusters_per_row = clusters_per_row
-        self.__cluster_size = cluster_size
-        self.__grid = self.__generate_grid()
+    def __init__(self):
+        self.__grid = None
+
+        # Keep looping until a valid grid has been generated
+        while self.__grid == None:
+            self.__grid = self.__generate_grid()
 
     def __generate_grid(self):
-        cells_per_row = self.__clusters_per_row * self.__cluster_size
-        rows = list(map(lambda _: NumSet(cells_per_row), range(cells_per_row)))
-        cols = list(map(lambda _: NumSet(cells_per_row), range(cells_per_row)))
+        grid_width = 9
+        cluster_width = 3
+        rows = list(map(lambda _: NumSet(grid_width), range(grid_width)))
+        cols = list(map(lambda _: NumSet(grid_width), range(grid_width)))
         grid = []
 
-        for row_index in range(self.__clusters_per_row):
-            sub_row_index = row_index * self.__cluster_size
+        for row_index in range(cluster_width):
+            sub_row_index = row_index * cluster_width
 
-            for col_index in range(self.__clusters_per_row):
-                sub_col_index = col_index * self.__cluster_size
-                cluster_num_set = NumSet(cells_per_row)
+            for col_index in range(cluster_width):
+                sub_col_index = col_index * cluster_width
+                cluster_num_set = NumSet(grid_width)
                 cluster = []
 
-                for cluster_row_index in range(self.__cluster_size):
-                    for cluster_col_index in range(self.__cluster_size):
+                for cluster_row_index in range(cluster_width):
+                    for cluster_col_index in range(cluster_width):
                         current_col = cluster_col_index + sub_col_index
                         current_row = cluster_row_index + sub_row_index
                         num_sets = {
@@ -37,14 +40,11 @@ class SudokuGrid:
                             & num_sets["col"].get_available_nums()
                         )
 
-                        # TODO: Remove temporary bug fix
-                        # Restart the grid generation in the odd case that
-                        # there are no available numbers left for a given cell
+                        # Exit if there are no more available numbers for a given cell
                         if len(available_nums) == 0:
-                            print("There are no more available numbers for this cell.")
-                            return self.__generate_grid()
+                            return None
 
-                        random_pick = random.choice(list(available_nums))
+                        random_pick = choice(list(available_nums))
 
                         num_sets["cluster"].assign_num(random_pick)
                         num_sets["row"].assign_num(random_pick)
@@ -55,12 +55,6 @@ class SudokuGrid:
                 grid.append(cluster)
 
         return grid
-
-    def get_clusters_per_row(self):
-        return self.__clusters_per_row
-
-    def get_cluster_size(self):
-        return self.__cluster_size
 
     def get_grid(self):
         return self.__grid

@@ -54,3 +54,28 @@ button {
   margin: 0;
   color: #fff;
 }
+
+.sudoku-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3px;
+  aspect-ratio: 1;
+  margin-block: 30px;
+  background-color: #000;
+  border: solid 3px #000;
+  border-radius: 4px;
+}
+
+.sudoku-cluster {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+  background-color: #ccc;
+}
+
+.sudoku-cell {
+  display: grid;
+  place-items: center;
+  background-color: #fff;
+  font-size: 2rem;
+}
