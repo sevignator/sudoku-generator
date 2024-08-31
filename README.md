@@ -1,6 +1,12 @@
 # Sudoku Generator
 
-Project 1 built in the context of the back-end career path from [Boot.dev](https://boot.dev).
+First personal project built in the context of the back-end career path from [Boot.dev](https://boot.dev).
+
+## Description
+
+A program that generates a valid random Sudoku grid and renders it in HTML. Each time that the user refreshes the page, a new grid gets generated.
+
+The next step in this project will be to randomly remove numbers from the grid and make it an actual puzzle.
 
 ## Setup
 
@@ -28,7 +34,7 @@ Project 1 built in the context of the back-end career path from [Boot.dev](https
     pipenv run start
     ```
 
-5. Access the project from your browser at http://127.0.0.1:5000.
+5. Access the project from your browser at [http://127.0.0.1:5000](http://127.0.0.1:5000).
 
 ## Objective
 
